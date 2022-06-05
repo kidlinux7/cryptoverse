@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useGetNewsQuery } from '../services/newsApi';
 import { useGetCryptoStatsQuery } from '../services/cryptoApi';
+import { Link } from 'react-router-dom';
+
 
 // import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -65,7 +67,7 @@ const News = ({ simplified }) => {
         converted.map((headline, index) => (
           <div key={index} className='col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 mt-4 align-items-center mx-auto' >
 
-            <div className='cardLinks' href={headline.url} target="_blank" >
+            <a className='cardLinks' href={headline.url} target="_blank" >
               <div className="card">
                 {
                   headline.image == undefined ?
@@ -96,7 +98,7 @@ const News = ({ simplified }) => {
 
                 </div>
               </div>
-            </div>
+            </a>
 
           </div>
         ))

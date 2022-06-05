@@ -8,6 +8,7 @@ import HTMLReactParser from 'html-react-parser';
 import LineChartCOmponent from './LineChartCOmponent'
 import Loader from './Loader'
 import CheckInternetConnection from './CheckInternetConnection'
+import millify from 'millify'
 
 
 const Cryptodetails = () => {
@@ -36,18 +37,18 @@ const Cryptodetails = () => {
 
   if (cryptoDetails !== undefined) {
     stats = [
-      { title: 'Price to USD', value: `$ ${cryptoDetails.price && (cryptoDetails.price)}` },
+      { title: 'Price to USD', value: `$ ${cryptoDetails.price && millify(cryptoDetails.price)}` },
       { title: 'Rank', value: cryptoDetails.rank },
-      { title: '24h Volume', value: `$ ${cryptoDetails.volume}` },
-      { title: 'Market Cap', value: `$ ${cryptoDetails.marketCap && (cryptoDetails.marketCap)}` },
-      { title: 'All-time-high(daily avg.)', value: `$ ${(cryptoDetails.allTimeHigh.price)}` },
+      { title: '24h Volume', value: 'N/A' },
+      { title: 'Market Cap', value: `$ ${cryptoDetails.marketCap && millify(cryptoDetails.marketCap)}` },
+      { title: 'All-time-high(daily avg.)', value: `$ ${millify(cryptoDetails.allTimeHigh.price)}` },
     ]
     otherstats = [
-      { title: 'Number of Markets', value: `$ ${cryptoDetails.numberOfMarkets && (cryptoDetails.numberOfMarkets)}` },
+      { title: 'Number of Markets', value: `$ ${cryptoDetails.numberOfMarkets && millify(cryptoDetails.numberOfMarkets)}` },
       { title: 'Number of Exchanges', value: cryptoDetails.numberOfExchanges },
-      { title: 'Low Volume', value: cryptoDetails.lowVolume },
-      { title: 'Total Supply', value: `$ ${(cryptoDetails.supply.total)}` },
-      { title: 'Circulating Supply', value: `$ ${(cryptoDetails.supply.circulating)}` },
+      { title: 'Low Volume', value: 'N/A' },
+      { title: 'Total Supply', value: 'N/A' },
+      { title: 'Circulating Supply', value: `$ ${millify(cryptoDetails.supply.circulating)}` },
     ]
 
 

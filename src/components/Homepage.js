@@ -7,6 +7,7 @@ import News from './News';
 import { Link } from 'react-router-dom';
 import CheckInternetConnection from './CheckInternetConnection';
 import Loader from './Loader';
+import millify from 'millify';
 
 const Homepage = () => {
   const { data, isFetching, isError } = useGetCryptoStatsQuery(10);
@@ -37,17 +38,17 @@ const Homepage = () => {
                 {/* <div className='d-flex align-content-start flex-wrap'> */}
                 <StatsCard statsTitle="Total Cryptos" statsValue={globalStats.total == undefined ? 0 : globalStats.total} />
                 <StatsCard statsTitle="Total Exchnages" statsValue={globalStats.totalExchanges} />
-                <StatsCard statsTitle="Total MarketCap" statsValue={(globalStats.totalMarketCap)} />
-                <StatsCard statsTitle="Total Markets" statsValue={(globalStats.totalMarkets)} />
-                <StatsCard statsTitle="Total Volume(24h)" statsValue={(globalStats.total24hVolume)} />
+                <StatsCard statsTitle="Total MarketCap" statsValue={millify(globalStats.totalMarketCap)} />
+                <StatsCard statsTitle="Total Markets" statsValue={millify(globalStats.totalMarkets)} />
+                <StatsCard statsTitle="Total Volume(24h)" statsValue={millify(globalStats.total24hVolume)} />
               </div>
               <div className="d-sm-none d-none d-md-block d-lg-block d-xl-block d-xxl-block">
                 <div className='d-flex align-content-start flex-wrap'>
                   <StatsCard statsTitle="Total Cryptos" statsValue={globalStats.total == undefined ? 0 : globalStats.total} />
                   <StatsCard statsTitle="Total Exchnages" statsValue={globalStats.totalExchanges} />
-                  <StatsCard statsTitle="Total MarketCap" statsValue={(globalStats.totalMarketCap)} />
-                  <StatsCard statsTitle="Total Markets" statsValue={(globalStats.totalMarkets)} />
-                  <StatsCard statsTitle="Total Volume(24h)" statsValue={(globalStats.total24hVolume)} />
+                  <StatsCard statsTitle="Total MarketCap" statsValue={millify(globalStats.totalMarketCap)} />
+                  <StatsCard statsTitle="Total Markets" statsValue={millify(globalStats.totalMarkets)} />
+                  <StatsCard statsTitle="Total Volume(24h)" statsValue={millify(globalStats.total24hVolume)} />
                 </div>
               </div>
             </div>

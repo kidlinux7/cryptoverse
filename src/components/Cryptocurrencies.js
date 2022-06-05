@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import  from '';
+import { millify } from 'millify';
 import { Link } from 'react-router-dom';
 import { useGetCryptoStatsQuery } from '../services/cryptoApi';
 import Loader from './Loader';
@@ -78,8 +78,8 @@ const Cryptocurrencies = ({ simplified }) => {
                               <img src={currency.iconUrl} alt="CoinImage" className="cryptoIcon" />
                             </div>
                             <h6 className="card-subtitle mb-2 text-muted">{currency.symbol}</h6>
-                            <p className="card-text">MarketCap: {(currency.marketCap)}</p>
-                            <p className="card-text">Price: {'$ ' + (currency.price)}</p>
+                            <p className="card-text">MarketCap: {millify(currency.marketCap)}</p>
+                            <p className="card-text">Price: {'$ ' + millify(currency.price)}</p>
                           </div>
                         </div>
                       </Link>
